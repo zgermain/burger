@@ -1,7 +1,7 @@
 //Dependencies
 const connection = require("../config/connection.js");
 
-//ORM
+//ORM - Creates an object based on SQL data
 const orm = {
   selectAll: ()=>{},
   insertOne: ()=>{},
