@@ -5,7 +5,13 @@
   <h2>Devoured Burgers</h2>
   {{#each burgers}}
     {{#if devoured}}
-      <li>{{burger_name}} - {{id}}</li>
+      <li>{{burger_name}} - {{id}}
+        <button class="devour-switch" data-id="{{id}}" data-devoured="{{devoured}}">
+          {{#if devoured}} Barf it up!
+            {{else}} Devour it!
+          {{/if}}
+        </button>
+      </li>
     {{/if}}
   {{/each}}
 
@@ -13,6 +19,11 @@
   {{#each burgers}}
     {{#unless devoured}}
       <li>{{burger_name}} - {{id}}</li>
+        <button class="devour-switch" data-id="{{id}}" data-devoured="{{devoured}}">
+          {{#if devoured}} Barf it up!
+            {{else}} Devour it!
+          {{/if}}
+        </button>
     {{/unless}}
   {{/each}}
 

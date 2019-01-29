@@ -36,10 +36,11 @@ router.post("/api/burgers", function(req, res) {
 // //change burger?
 router.put("/api/burgers/:id", function(req, res) {
   const burgerToUpdate = req.params;
-  const newDevour = !req.body.devoured;
+  const newDevour = Math.abs(req.body.devoured-1);
+  console.log("newDevour: "+newDevour);
 
   const condition = `id = ${burgerToUpdate.id}`;
-  console.log(`Condition: ${condition}`);
+  // console.log(`Condition: ${condition}`);
 
   burger.update("devoured", newDevour, condition, function(result) {
     if (result.changedRows == 0) {

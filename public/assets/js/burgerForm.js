@@ -6,13 +6,14 @@ $(document).ready(()=>{
   $(".devour-switch").on("click", function(event) {
     const id = $(this).data("id");
     const newDevour = $(this).data("devoured");
+    console.log("devour-state: "+newDevour)
 
     const newDevourState = {
-
+      devoured: newDevour
     };
-
+  
     //AJAX call to Controller
-    $.ajax(`/api/burgers/${id}`, {
+    $.ajax("/api/burgers/"+id, {
       type: "PUT",
       data: newDevourState
     }).then(
