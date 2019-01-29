@@ -23,9 +23,9 @@ const orm = {
 
     connection.query(queryString, [value], function(err, result) {
       if (err) throw err;
+      callback(result);
     });
 
-    callback(result);
   },
 
   updateOne: (table, column, value, condition, callback)=>{
@@ -34,9 +34,10 @@ const orm = {
     console.log(queryString);
     connection.query(queryString, function(err, result) {
       if (err) throw err;
+      callback(result);
     })
 
-    callback(result);
+    
   }
 };
 

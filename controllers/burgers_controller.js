@@ -28,7 +28,7 @@ router.post("/api/burgers", function(req, res) {
   burger.create("burger_name", newBurger.name, function(result) {
 
     // converts result into json
-    res.json({ id: result.insertId})
+    res.json({id: result.insertId})
   });
 
 });
