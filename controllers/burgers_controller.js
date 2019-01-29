@@ -21,22 +21,35 @@ router.get("/", function(req, res) {
     //router takes request from api/burgers
 router.post("/api/burgers", function(req, res) {
 
-  //burger model creates a new burger object (for SQL?)
-  burger.create([
-    "burger_name", "devoured"
-  ]), [
+  const newBurger = req.body;
+  console.log(newBurger);
 
-    //request from the body of the html form
-    req.body.burgerName, req.body.devoured
-  ], function(result) {
+  //calls the burger model create method in order to create a new burger object 
+  burger.create("burger_name", newBurger.name, function(result) {
 
-    //? 
+    // converts result into json
     res.json({ id: result.insertId})
-  }
+  });
+
 });
 
 // //change burger?
-router.put();
+router.put("/api/burgers/:id", function(req, res) {
+  const burgerToUpdate = req.params;
+  const newDevour = !req.body.devoured;
+
+  const condition = `id = ${burgerToUpdate.id}`;
+  console.log(`Condition: ${condition}`);
+
+  burger.update("devoured", newDevour, condition, function(result) {
+    if (result.changedRows == 0) {
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+
+});
 
 
 //Export Router
