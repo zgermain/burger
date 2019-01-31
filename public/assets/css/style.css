@@ -1,8 +1,28 @@
 body{
   background-image: url(https://media.giphy.com/media/3ohjUObkKl8CyTFYf6/giphy.gif);
-  background-repeat: repeat
+  background-repeat: repeat;
+}
+
+html, body {
+  height: 100%
+}
+
+html, body, .container{
+  min-height: 100%;
+}
+
+h1{
+  font-size: 100px
+}
+
+h1,h4{
+  text-align: center
 }
 
 .container{
-  background-color: lightgoldenrodyellow
+  background-color: lightgoldenrodyellow;
+}
+
+.btn{
+  margin: 2px
 }
